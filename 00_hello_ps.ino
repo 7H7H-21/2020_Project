@@ -1,0 +1,27 @@
+#include <DHT.h>
+#include <DHT_U.h>
+#include <TimerOne.h>
+
+#define DHTPIN 2
+#define DHTTYPE DHT11
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(9600); 
+
+}
+
+void loop() {
+  delay(2000);
+  int h = dht.readHumidity();
+  int t = dht.readTemperature();
+  Serial.print("Humidity :");
+  Serial.print(h);
+  Serial.print("%\t");
+  Serial.print("Temperature :");
+  Serial.print(t);
+  Serial.print(" C");
+  Serial.print("%\n");
+  
+
+}
